@@ -1,0 +1,53 @@
+.technology {
+  &.md-style-header {
+    background-image: url(../images/greyscale/technology-bg.jpg);
+    animation-name: technology-background-image;
+    animation-duration: $anim-duration;
+    background-position: 50% 55%;
+
+    &:before {
+      background-color: rgba($technology-color, .5);
+    }
+  }
+  .md-style-header {
+    &__icon {
+      animation-name: technology-icon-scaling;
+      animation-duration: $anim-duration/2;
+
+      &:before {
+        animation-name: technology-background-bubble;
+        animation-duration: $anim-duration*2;
+        background-color: lighten($technology-color, 20%);
+        box-shadow: 0 0 0 -25px lighten($technology-color, 5%);
+      }
+
+      &:after{
+        content: "receipt";
+      }
+    }
+  }
+
+  &.md-style-tabs {
+    &.mdl-color--primary-dark {
+      background-color: darken($technology-color, 10%)!important;
+    }
+  }
+}
+
+@keyframes technology-background-bubble {
+  0%   {box-shadow: 0 0 0  -25px darken($technology-color, 5%)}
+  25%  {box-shadow: 0 0 0 1000px darken($technology-color, 5%)}
+  100% {box-shadow: 0 0 0 1000px rgba(darken($technology-color, 5%), 0)}
+}
+
+@keyframes technology-background-image {
+  0%   {background-image: none;}
+  25%  {background-image: none}
+  100% {background-image: url(../images/greyscale/technology-bg.jpg);}
+}
+
+@keyframes technology-icon-scaling {
+  0%   {transform: scale(0)}
+  80% {transform: scale(1.2)}
+  100% {transform: scale(1)}
+}
